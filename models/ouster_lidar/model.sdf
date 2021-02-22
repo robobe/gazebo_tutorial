@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+    <model name="ouster_lidar">
+        <link name='body'>
+            <pose>0 0 0.0365 0 0 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.000241148</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.000241148</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.000264</izz>
+                </inertia>
+                <mass>0.33</mass>
+            </inertial>
+            <collision name='collision'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.04</radius>
+                        <length>0.073</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+
+            <visual name='visual'>
+                <geometry>
+                    <cylinder>
+                        <radius>0.04</radius>
+                        <length>0.073</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="lidar_link">
+            <sensor type="ray" name="OS1-64">
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>true</visualize>
+                <update_rate>10</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>5</samples>
+                            <resolution>1</resolution>
+                            <min_angle>0</min_angle>
+                            <max_angle>0.157</max_angle>
+                        </horizontal>
+                        <vertical>
+                            <samples>2</samples>
+                            <resolution>1</resolution>
+                            <min_angle>0.1</min_angle>
+                            <max_angle>.26</max_angle>
+                        </vertical>
+                    </scan>
+                    <range>
+                        <min>0.9</min>
+                        <max>3.0</max>
+                        <resolution>0.03</resolution>
+                    </range>
+                </ray>
+            </sensor>
+        </link>
+        <joint name="lidar_joint" type="fixed">
+            <parent>body</parent>
+            <child>lidar_link</child>
+            <pose>0 0 0.03618 0 0 0</pose>
+        </joint>
+    </model>
+</sdf>
