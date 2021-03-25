@@ -1,0 +1,81 @@
+<?xml version='1.0'?>
+<sdf version="1.7">
+  <model name="my_box">
+    <link name='box'>
+      <pose>0 0 0.5 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>16.66667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>16.66667</iyy>
+          <iyz>0</iyz>
+          <izz>16.66667</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name="bar_12_joint" type="fixed">
+      <parent>box</parent>
+      <child>box2</child>
+      <pose>0 0 -0.5 0 0 0</pose>
+      
+    </joint>
+    <link name='box2'>
+      <pose>0 0 1.5 0 0 0</pose>
+      <inertial>
+        <mass>10</mass>
+        <inertia>
+          <ixx>1.666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.666667</iyy>
+          <iyz>0</iyz>
+          <izz>1.666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
