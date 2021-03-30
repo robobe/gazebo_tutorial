@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+    <world name="default">
+        <!-- A global light source -->
+        <include>
+            <uri>model://sun</uri>
+        </include>
+        <!-- A ground plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+        <model name="ramp">
+            <pose>0 0 1 0 0 0 </pose>
+            <static>1</static>
+            <link name="ramp_link">
+                <pose>0 0 0 0 0 0</pose>
+                <collision name="ramp_collision">
+                    <pose>0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>5 5 0.02</size>
+                        </box>
+                    </geometry>
+                    <max_contacts>50</max_contacts>
+                    <surface>
+                        <friction>
+                            <ode />
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name="ramp_visual">
+                    <pose>0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>5 5 0.02</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <lighting>1</lighting>
+                        <script>
+                            <uri>file://media/materials/scripts/gazebo.material</uri>
+                            <name>Gazebo/White</name>
+                        </script>
+                    </material>
+                </visual>
+                <gravity>0</gravity>
+                <velocity_decay />
+            </link>
+        </model>
+
+        <model name="cube_mu">
+            <pose relative_to="ramp">0 1.5 0.11 0 0 0</pose>
+            <link name="cube_mu_link">
+                <pose>0 0 0 0 0 0</pose>
+                <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.03333333333333333</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.03333333333333333</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.03333333333333333</izz>
+                    </inertia>
+                </inertial>
+                <collision name="cube_mu_collision">
+                    <pose relative_to="cube_mu_link">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>0.2 0.2 0.2</size>
+                        </box>
+                    </geometry>
+                    <surface>
+
+                        <friction>
+                            <ode>
+                                <mu>1</mu>
+                                <mu2>0</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name="cube_mu_visual">
+                    <pose>0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>0.2 0.2 0.2</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <lighting>1</lighting>
+                        <script>
+                            <uri>file://media/materials/scripts/gazebo.material</uri>
+                            <name>Gazebo/Red</name>
+                        </script>
+                    </material>
+                </visual>
+                <gravity>1</gravity>
+                <velocity_decay />
+            </link>
+        </model>
+
+        <model name="cube_mu_10">
+            <pose relative_to="ramp">0 -1.5 0.11 0 0 0</pose>
+            <link name="cube_mu10_link">
+                <pose>0 0 0 0 0 0</pose>
+                <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>10</mass>
+                    <inertia>
+                        <ixx>0.066667</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.066667</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.066667</izz>
+                    </inertia>
+                </inertial>
+                <collision name="cube_mu10_collision">
+                    <pose relative_to="cube_mu10_link">0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>0.2 0.2 0.2</size>
+                        </box>
+                    </geometry>
+                    <surface>
+
+                        <friction>
+                            <ode>
+                                <mu>1</mu>
+                                <mu2>0</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name="cube_mu10_visual">
+                    <pose>0 0 0 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>0.2 0.2 0.2</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <lighting>1</lighting>
+                        <script>
+                            <uri>file://media/materials/scripts/gazebo.material</uri>
+                            <name>Gazebo/Green</name>
+                        </script>
+                    </material>
+                </visual>
+                <gravity>1</gravity>
+                <velocity_decay />
+            </link>
+        </model>
+    </world>
+</sdf>
